@@ -1,6 +1,7 @@
 ## Flipkart-GRID-challenge
 The objective is to replace the physical warranty and have block chain based warranty using NFT which will ensure
 authenticity and security.
+
 ● Converting ownership authenticity and product warranty cards into decaying NFTs.
 
 ● For instance, allow brands and retailers to introduce an NFT for each of their products, which allows
@@ -18,6 +19,7 @@ repairs and replacements to the original item.
 Example on the Klatyn Chain - Korean retailer issues blockchain warranties as NFTs for luxury items - Ledger Insights
 
 ## What are we expecting:
+
 ● The blockchain smart contract should allow users to prove ownership
 
 ● Provide the purchasing history, warranty period, and other item information
@@ -30,7 +32,7 @@ benefits offered by the brand/retailer will expire
 
 ● Bonus - GUI-based tool that doesn’t require knowledge of any Blockchain programming to use by Brands and
 
-Retailers.
+## Retailers.
 
 ● Bonus - Usage of Soulbound NFTs
 
