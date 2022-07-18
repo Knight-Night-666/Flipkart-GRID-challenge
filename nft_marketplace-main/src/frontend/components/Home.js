@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import { ethers } from "ethers"
 import { Row, Col, Card, Button } from 'react-bootstrap'
 
+
 const Home = ({ marketplace, nft }) => {
   const [loading, setLoading] = useState(true)
   const [items, setItems] = useState([])
+  const [Buyadd, setBuyadd] = useState('')
   const loadMarketplaceItems = async () => {
     // Load all unsold items
     const itemCount = await marketplace.itemCount()
@@ -34,8 +36,9 @@ const Home = ({ marketplace, nft }) => {
     setItems(items)
   }
 
-  const buyMarketItem = async (item) => {
-    await (await marketplace.purchaseItem(item.itemId, { value: item.totalPrice })).wait()
+  const buyMarketItem = async (item, Buyadd) => {
+    console.log("buyer", Buyadd)
+    await (await marketplace.purchaseItem(item.itemId, Buyadd, { value: item.totalPrice })).wait()
     loadMarketplaceItems()
   }
 
@@ -47,6 +50,7 @@ const Home = ({ marketplace, nft }) => {
       <h2>Loading...</h2>
     </main>
   )
+
   return (
     <div className="flex justify-center">
       {items.length > 0 ?
@@ -61,11 +65,14 @@ const Home = ({ marketplace, nft }) => {
                     <Card.Text>
                       {item.description}
                     </Card.Text>
+                    <Card.Text className='row'>
+                    <input className='col-12' onChange={(e) => setBuyadd(e.target.value)} type="text" id="buyadd" name="buyadd"/>
+                    </Card.Text>
                   </Card.Body>
                   <Card.Footer>
                     <div className='d-grid'>
-                      <Button onClick={() => buyMarketItem(item)} variant="primary" size="lg">
-                        Buy for {ethers.utils.formatEther(item.totalPrice)} ETH
+                      <Button onClick={() => buyMarketItem(item,Buyadd)} variant="primary" size="lg">
+                        Transfer NFT
                       </Button>
                     </div>
                   </Card.Footer>
