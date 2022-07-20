@@ -19,6 +19,8 @@ contract Marketplace is ReentrancyGuard {
         IERC721 nft;
         uint tokenId;
         uint price;
+        string sno;
+        uint warranty;
         address payable seller;
         bool sold;
     }
@@ -31,6 +33,8 @@ contract Marketplace is ReentrancyGuard {
         address indexed nft,
         uint tokenId,
         uint price,
+        string sno,
+        uint warranty,
         address indexed seller
     );
     event Bought(
@@ -38,6 +42,8 @@ contract Marketplace is ReentrancyGuard {
         address indexed nft,
         uint tokenId,
         uint price,
+        string sno,
+        uint warranty,
         address indexed seller,
         address indexed buyer
     );
@@ -48,18 +54,21 @@ contract Marketplace is ReentrancyGuard {
     }
 
     // Make item to offer on the marketplace
-    function makeItem(IERC721 _nft, uint _tokenId, uint _price) external nonReentrant {
-        require(_price > 0, "Price must be greater than zero");
+    function makeItem(IERC721 _nft, uint _tokenId, uint _price, string memory _sno, uint _warranty) external nonReentrant {
+        // require(_price > 0, "Price must be greater than zero");
         // increment itemCount
         itemCount ++;
         // transfer nft
         _nft.transferFrom(msg.sender, address(this), _tokenId);
         // add new item to items mapping
+        console.log(_warranty, _sno);
         items[itemCount] = Item (
             itemCount,
             _nft,
             _tokenId,
             _price,
+            _sno,
+            _warranty,
             payable(msg.sender),
             false
         );
@@ -69,6 +78,8 @@ contract Marketplace is ReentrancyGuard {
             address(_nft),
             _tokenId,
             _price,
+            _sno,
+            _warranty,
             msg.sender
         );
     }
@@ -94,8 +105,10 @@ contract Marketplace is ReentrancyGuard {
             address(item.nft),
             item.tokenId,
             item.price,
+            item.sno,
+            item.warranty,
             item.seller,
-            msg.sender
+            _buyer
         );
     }
     function getTotalPrice(uint _itemId) view public returns(uint){
