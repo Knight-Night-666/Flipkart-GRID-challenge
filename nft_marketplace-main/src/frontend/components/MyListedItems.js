@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { ethers } from "ethers"
 import { Row, Col, Card } from 'react-bootstrap'
 
+import './App.css';
+
 function renderSoldItems(items) {
   return (
     <>
@@ -10,9 +12,9 @@ function renderSoldItems(items) {
         {items.map((item, idx) => (
           <Col key={idx} className="overflow-hidden">
             <Card>
-              <Card.Img variant="top" src={item.image} />
+              <Card.Img variant="top" src={item.image} className="Card-Size"/>
               <Card.Footer>
-                For {ethers.utils.formatEther(item.totalPrice)} ETH - Recieved {ethers.utils.formatEther(item.price)} ETH
+                {/* For {ethers.utils.formatEther(item.totalPrice)} ETH - Recieved {ethers.utils.formatEther(item.price)} ETH */}
               </Card.Footer>
             </Card>
           </Col>
@@ -64,11 +66,11 @@ export default function MyListedItems({ marketplace, nft, account }) {
   }, [])
   if (loading) return (
     <main style={{ padding: "1rem 0" }}>
-      <h2>Loading...</h2>
+      <h2 className='mt-5 pt-3'>Loading...</h2>
     </main>
   )
   return (
-    <div className="flex justify-center">
+    <div className="flex navgap justify-center">
       {listedItems.length > 0 ?
         <div className="px-5 py-3 container">
             <h2>Listed</h2>
@@ -76,8 +78,8 @@ export default function MyListedItems({ marketplace, nft, account }) {
             {listedItems.map((item, idx) => (
               <Col key={idx} className="overflow-hidden">
                 <Card>
-                  <Card.Img variant="top" src={item.image} />
-                  <Card.Footer>{ethers.utils.formatEther(item.totalPrice)} ETH</Card.Footer>
+                  <Card.Img className='Card-Size' variant="top" src={item.image} />
+                  {/* <Card.Footer>{ethers.utils.formatEther(item.totalPrice)} ETH</Card.Footer> */}
                 </Card>
               </Col>
             ))}

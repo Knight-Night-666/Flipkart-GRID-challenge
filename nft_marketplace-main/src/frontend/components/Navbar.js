@@ -1,24 +1,25 @@
 import {
-    Link
+    Link, useLocation
 } from "react-router-dom";
 import { Navbar, Nav, Button, Container } from 'react-bootstrap'
-import market from './market.png'
+import market from './logo.png'
 
 const Navigation = ({ web3Handler, account }) => {
+    const location = useLocation();
     return (
-        <Navbar expand="lg" bg="secondary" variant="dark">
+        <Navbar className="navcl" expand="lg" variant="dark" fixed="top">
             <Container>
-                <Navbar.Brand href="http://www.dappuniversity.com/bootcamp">
-                    <img src={market} width="40" height="40" className="" alt="" />
-                    &nbsp; DApp NFT Marketplace
+                <Navbar.Brand href="/">
+                    <img src={market} width="55" height="50" className="" alt="" />
+                    &nbsp; ORDER_66 LIGHT SIDE 
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link as={Link} to="/">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/create">Create</Nav.Link>
-                        <Nav.Link as={Link} to="/my-listed-items">My Listed Items</Nav.Link>
-                        <Nav.Link as={Link} to="/my-purchases">My Purchases</Nav.Link>
+                        <Nav.Link as={Link} to="/" active={location.pathname==="/"}>Home</Nav.Link>
+                        <Nav.Link as={Link} to="/create" active={location.pathname==="/create"}>Create</Nav.Link>
+                        <Nav.Link as={Link} to="/my-listed-items" active={location.pathname==="/my-listed-items"}>My Listed Items</Nav.Link>
+                        <Nav.Link as={Link} to="/my-purchases" active={location.pathname==="/my-purchases"}>My Purchases</Nav.Link>
                     </Nav>
                     <Nav>
                         {account ? (
@@ -27,13 +28,13 @@ const Navigation = ({ web3Handler, account }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="button nav-button btn-sm mx-4">
-                                <Button variant="outline-light">
-                                    {account.slice(0, 5) + '...' + account.slice(38, 42)}
+                                <Button variant="outline-dark">
+                                    {account.slice(0, 6) + '...' + account.slice(39, 42)}
                                 </Button>
 
                             </Nav.Link>
                         ) : (
-                            <Button onClick={web3Handler} variant="outline-light">Connect Wallet</Button>
+                            <Button onClick={web3Handler} variant="outline-dark">Connect Wallet</Button>
                         )}
                     </Nav>
                 </Navbar.Collapse>

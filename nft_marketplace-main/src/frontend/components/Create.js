@@ -2,12 +2,16 @@ import { useState } from 'react'
 import { ethers } from "ethers"
 import { Row, Form, Button } from 'react-bootstrap'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
+import './App.css';
+
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
 const Create = ({ marketplace, nft }) => {
   const [image, setImage] = useState('')
-  const [price, setPrice] = useState(null)
+  const [price, setPrice] = useState(1)
   const [name, setName] = useState('')
+  const [sno, setSno] = useState('')
+  const [warranty,setWarranty] = useState(0)
   const [description, setDescription] = useState('')
   const uploadToIPFS = async (event) => {
     event.preventDefault()
@@ -23,8 +27,9 @@ const Create = ({ marketplace, nft }) => {
     }
   }
   const createNFT = async () => {
-    if (!image || !price || !name || !description) return
+    if (!image || !name || !description) return
     try{
+      setPrice(1)
       const result = await client.add(JSON.stringify({image, price, name, description}))
       mintThenList(result)
     } catch(error) {
@@ -40,11 +45,11 @@ const Create = ({ marketplace, nft }) => {
     // approve marketplace to spend nft
     await(await nft.setApprovalForAll(marketplace.address, true)).wait()
     // add nft to marketplace
-    const listingPrice = ethers.utils.parseEther(price.toString())
-    await(await marketplace.makeItem(nft.address, id, listingPrice)).wait()
+    // const listingPrice = web3.utils.toWei(price.toString())
+    await(await marketplace.makeItem(nft.address, id, price, sno, warranty)).wait()
   }
   return (
-    <div className="container-fluid mt-5">
+    <div className="container-fluid navgap pt-5">
       <div className="row">
         <main role="main" className="col-lg-12 mx-auto" style={{ maxWidth: '1000px' }}>
           <div className="content mx-auto">
@@ -57,7 +62,9 @@ const Create = ({ marketplace, nft }) => {
               />
               <Form.Control onChange={(e) => setName(e.target.value)} size="lg" required type="text" placeholder="Name" />
               <Form.Control onChange={(e) => setDescription(e.target.value)} size="lg" required as="textarea" placeholder="Description" />
-              <Form.Control onChange={(e) => setPrice(e.target.value)} size="lg" required type="number" placeholder="Price in ETH" />
+              {/* <Form.Control onChange={(e) => setPrice(e.target.value)} size="lg" required type="number" placeholder="Price in ETH" /> */}
+              <Form.Control onChange={(e) => setSno(e.target.value)} size="lg" required type="text" placeholder="Enter Serial Number" />
+              <Form.Control onChange={(e) => setWarranty(e.target.value)} size="lg" required type="number" placeholder="Enter Warranty period (in yrs)" />
               <div className="d-grid px-0">
                 <Button onClick={createNFT} variant="primary" size="lg">
                   Create & List NFT!

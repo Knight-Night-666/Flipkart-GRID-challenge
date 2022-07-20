@@ -12,7 +12,16 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.Card-Size {
+  height: auto;
+  max-height: 200px;
+  width: auto;
+  max-width: 300px;
+}
+.navcl {
+  background-color: rgb(203, 0, 0);
+  
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +44,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.navgap {
+  margin-top: 80px;
 }
