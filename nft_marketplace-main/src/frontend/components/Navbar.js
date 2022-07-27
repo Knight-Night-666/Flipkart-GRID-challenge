@@ -2,16 +2,16 @@ import {
     Link, useLocation
 } from "react-router-dom";
 import { Navbar, Nav, Button, Container } from 'react-bootstrap'
-import market from './logo.png'
+import market from './logo3.png'
 
 const Navigation = ({ web3Handler, account }) => {
     const location = useLocation();
     return (
         <Navbar className="navcl" expand="lg" variant="dark" fixed="top">
             <Container>
-                <Navbar.Brand href="/">
-                    <img src={market} width="55" height="50" className="" alt="" />
-                    &nbsp; ORDER_66 LIGHT SIDE 
+                <Navbar.Brand href="/" >
+                    <img src={market} width="50" height="46" className="" alt="" />
+                    &nbsp; ORDER 66 LIGHT SIDE 
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -28,13 +28,13 @@ const Navigation = ({ web3Handler, account }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="button nav-button btn-sm mx-4">
-                                <Button variant="outline-dark">
+                                <Button variant="outline-light">
                                     {account.slice(0, 6) + '...' + account.slice(39, 42)}
                                 </Button>
 
                             </Nav.Link>
                         ) : (
-                            <Button onClick={web3Handler} variant="outline-dark">Connect Wallet</Button>
+                            <Button onClick={web3Handler} variant="outline-light">Connect Wallet</Button>
                         )}
                     </Nav>
                 </Navbar.Collapse>

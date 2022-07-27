@@ -47,32 +47,38 @@ const Home = ({ marketplace, nft }) => {
     loadMarketplaceItems()
   }, [])
   if (loading) return (
-    <main style={{ padding: "1rem 0" }}>
-      <h2 className='mt-5 pt-3'>Loading...</h2>
+    <main style={{ padding: "1rem 0", color: 'floralwhite' }}>
+      <h2 className='mt-5 pt-4'>Loading...</h2>
     </main>
   )
 
   return (
+  
     <div className="flex navgap justify-center">
+      {/* <img class="img" src="abstract.png"/> */}
       {items.length > 0 ?
         <div className="px-5 container">
           <Row xs={1} md={2} lg={4} className="g-4 py-5">
             {items.map((item, idx) => (
               <Col key={idx} className="overflow-hidden">
-                <Card className="">
+                <Card className="gol">
                   <Card.Img variant="top" src={item.image} className="Card-Size" />
-                  <Card.Body color="secondary">
-                    <Card.Title>{item.name}</Card.Title>
-                    <Card.Text>
-                      {item.description}
-                    </Card.Text>
-                    <Card.Text className='row justify-content-center'>
-                    <input className='col-11' onChange={(e) => setBuyadd(e.target.value)} type="text" placeholder="Enter the address of the buyer" id="buyadd" name="buyadd"/>
-                    </Card.Text>
+                  <Card.Body color="secondary">                  
                   </Card.Body>
                   <Card.Footer>
-                    <div className='d-grid'>
-                      <Button onClick={() => buyMarketItem(item,Buyadd)} variant="primary" size="lg">
+                    <div className='row'>
+                      <div className="col">
+                      <Card.Title>{item.name}</Card.Title>
+
+                        </div>
+                      <div className="col-12">
+                      <Card.Text>
+                      {item.description}
+                    </Card.Text>
+                        </div>
+                    <input className='col-11 mt-3 form-control' onChange={(e) => setBuyadd(e.target.value)} type="text" placeholder="Enter the address of the buyer" id="buyadd" name="buyadd"/>
+
+                      <Button className='col-12 mt-2 btn-col' onClick={() => buyMarketItem(item,Buyadd)} variant="danger" size="lg">
                         Transfer NFT
                       </Button>
                     </div>
@@ -83,7 +89,7 @@ const Home = ({ marketplace, nft }) => {
           </Row>
         </div>
         : (
-          <main style={{ padding: "1rem 0" }}>
+          <main style={{ padding: "1rem 0", color: 'floralwhite' }}>
             <h2>No listed assets</h2>
           </main>
         )}

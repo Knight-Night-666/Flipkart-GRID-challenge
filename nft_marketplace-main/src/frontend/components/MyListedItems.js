@@ -11,7 +11,7 @@ function renderSoldItems(items) {
       <Row xs={1} md={2} lg={4} className="g-4 py-3">
         {items.map((item, idx) => (
           <Col key={idx} className="overflow-hidden">
-            <Card>
+            <Card className='gol'>
               <Card.Img variant="top" src={item.image} className="Card-Size"/>
               <Card.Footer>
                 {/* For {ethers.utils.formatEther(item.totalPrice)} ETH - Recieved {ethers.utils.formatEther(item.price)} ETH */}
@@ -65,8 +65,8 @@ export default function MyListedItems({ marketplace, nft, account }) {
     loadListedItems()
   }, [])
   if (loading) return (
-    <main style={{ padding: "1rem 0" }}>
-      <h2 className='mt-5 pt-3'>Loading...</h2>
+    <main style={{ padding: "1rem 0", color: 'floralwhite' }}>
+      <h2 className='mt-5 pt-4'>Loading...</h2>
     </main>
   )
   return (
@@ -77,9 +77,29 @@ export default function MyListedItems({ marketplace, nft, account }) {
           <Row xs={1} md={2} lg={4} className="g-4 py-3">
             {listedItems.map((item, idx) => (
               <Col key={idx} className="overflow-hidden">
-                <Card>
+                {/* <Card className='gol'>
                   <Card.Img className='Card-Size' variant="top" src={item.image} />
-                  {/* <Card.Footer>{ethers.utils.formatEther(item.totalPrice)} ETH</Card.Footer> */}
+                  <Card.Footer> */}
+                  {/* For {ethers.utils.formatEther(item.totalPrice)} ETH - Recieved {ethers.utils.formatEther(item.price)} ETH */}
+                  {/* </Card.Footer>
+                </Card> */}
+                <Card className="gol">
+                  <Card.Img variant="top" src={item.image} className="Card-Size" />
+                  <Card.Body color="secondary">                  
+                  </Card.Body>
+                  <Card.Footer>
+                    <div className='row'>
+                      <div className="col">
+                      <Card.Title>{item.name}</Card.Title>
+
+                        </div>
+                      <div className="col-12">
+                      <Card.Text>
+                      {item.description}
+                    </Card.Text>
+                       </div>
+                      </div>
+                  </Card.Footer>
                 </Card>
               </Col>
             ))}
@@ -87,7 +107,7 @@ export default function MyListedItems({ marketplace, nft, account }) {
             {soldItems.length > 0 && renderSoldItems(soldItems)}
         </div>
         : (
-          <main style={{ padding: "1rem 0" }}>
+          <main style={{ padding: "1rem 0", color: 'floralwhite' }}>
             <h2>No listed assets</h2>
           </main>
         )}

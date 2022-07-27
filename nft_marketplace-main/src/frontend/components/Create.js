@@ -27,10 +27,11 @@ const Create = ({ marketplace, nft }) => {
     }
   }
   const createNFT = async () => {
-    if (!image || !name || !description) return
+    if (!image || !name || !description || !warranty || !sno) return
     try{
       setPrice(1)
-      const result = await client.add(JSON.stringify({image, price, name, description}))
+      const date = Math.floor(new Date().getTime() / 1000);
+      const result = await client.add(JSON.stringify({image, price, name, description, warranty, sno, date}))
       mintThenList(result)
     } catch(error) {
       console.log("ipfs uri upload error: ", error)
@@ -66,7 +67,7 @@ const Create = ({ marketplace, nft }) => {
               <Form.Control onChange={(e) => setSno(e.target.value)} size="lg" required type="text" placeholder="Enter Serial Number" />
               <Form.Control onChange={(e) => setWarranty(e.target.value)} size="lg" required type="number" placeholder="Enter Warranty period (in yrs)" />
               <div className="d-grid px-0">
-                <Button onClick={createNFT} variant="primary" size="lg">
+                <Button onClick={createNFT} className="btn-col" variant='danger' size="lg">
                   Create & List NFT!
                 </Button>
               </div>
