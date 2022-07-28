@@ -1,5 +1,5 @@
 # ORDER 66 LIGHT SIDE: A One stop eCommerce warranty system using NFTs 
-### Github-Link: **https://github.com/Knight-Night-666/Flipkart-GRID-challenge**
+### GitHub-Link: **https://github.com/Knight-Night-666/Flipkart-GRID-challenge**
 ### Main branch: **pakka-promise**
 
 ## Problem Statement:
@@ -59,10 +59,10 @@ $ npm install
 - If you have not added hardhat to the list of networks on your metamask, open up a browser, click the fox icon, then click the top center dropdown button that lists all the available networks then click add networks. A form should pop up. For the "Network Name" field enter "Hardhat". For the "New RPC URL" field enter "http://127.0.0.1:8545". For the chain ID enter "31337". Then click save.
 
 5. Migrate Smart Contracts:
-`npx hardhat run src/backend/scripts/deploy.js --network localhost`
+```npx hardhat run src/backend/scripts/deploy.js --network localhost```
 
 6. Run the Development server by
-`$ npm run start`
+```$ npm run start```
 
 ## Demo:
 Video demostration : https://youtu.be/3t715p6pglA (Video Link) 
