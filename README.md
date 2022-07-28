@@ -67,7 +67,8 @@ $ npm install
 
 Video demostration : https://youtu.be/3t715p6pglA (Video Link) 
 
-## Platform: ### Web based
+## Platform:
+  ### Web based
 
 ## Scalability:
 - Creating a more fully fledged marketplace that will handle selling and listing 
