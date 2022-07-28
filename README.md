@@ -1,4 +1,4 @@
-## Flipkart-GRID-challenge
+# Flipkart-GRID-challenge - Problem Statement
 The objective is to replace the physical warranty and have block chain based warranty using NFT which will ensure
 authenticity and security.
 
@@ -46,3 +46,7 @@ code to be used in the demo)
 ● Clean and well-structured Solidity code/templates
 
 ● Feature sets
+
+
+# Our Solution (A transferrable NFT warranty marketplace)
+## Instructions for installation
