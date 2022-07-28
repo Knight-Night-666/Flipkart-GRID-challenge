@@ -6,6 +6,7 @@
 
 The objective is to replace the physical warranty and have block chain based warranty using NFT which will ensure
 authenticity and security.
+
 -Converting ownership authenticity and product warranty cards into decaying NFTs.
 - For instance, allow brands and retailers to introduce an NFT for each of their products, which allows
 customers to receive the physical product along with a digital version of it.
@@ -41,7 +42,7 @@ repairs and replacements to the original item.
 
 ## Installation and Instructions:
 
-1. Clone the project by
+1. Clone the project from:
 ```
 https://github.com/Knight-Night-666/Flipkart-GRID-challenge 
 ```
