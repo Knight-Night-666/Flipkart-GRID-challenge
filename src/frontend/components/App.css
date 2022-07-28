@@ -1,0 +1,110 @@
+.App {
+  text-align: center;
+}
+
+.bgcol{
+  background-image: url("abstract.png");
+  /* Full height */
+  height: 100%; 
+  animation: scale 1s;
+  /* background-color: #170420; */
+
+  background-attachment: fixed;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.btn-col{
+  background-color: #F05454;
+  outline: none;
+  border-style: none;
+}
+.inputround
+{
+  border-radius: 2px;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.Card-Size {
+  height: auto;
+  max-height: 200px;
+  width: auto;
+  max-width: 300px;
+  color:white;
+  border-radius: 10px 10px 0px 0px;
+}
+.emboss {
+  width: 100%;
+  height: 200px;
+  padding: 30px;
+  background: #EDF3F9;
+  box-shadow: -7px -7px 16px 0 #FFFFFF, 7px 7px 10px -4px rgba(116,150,179,0.27);
+  border-radius: 18px;  
+  margin-bottom: 20px;
+  display: block;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.gol{
+  border-radius: 10px;
+  background-color: rgba(32, 19, 81, 0.5);
+  height : 100%;
+  color:white;
+  /* box-shadow: 1px 3px 5px 5px rgba(12,12,12,0.2); */
+  /* box-shadow: rgba(240, 51, 47, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px; */
+}
+.navcl {
+  background-color: #C61340;
+}
+.active{
+  color:  #5cdb95;
+
+}
+.bluetext{
+  color:#05386b;
+
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navgap {
+  margin-top: 80px;
+}
