@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ethers } from "ethers"
-import { Row, Form, Button } from 'react-bootstrap'
+import { Row, Form, Button, Col } from 'react-bootstrap'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
 import './App.css';
 
@@ -54,15 +54,15 @@ const Create = ({ marketplace, nft }) => {
       <div className="row">
         <main role="main" className="col-lg-12 mx-auto" style={{ maxWidth: '1000px' }}>
           <div className="content mx-auto">
-            <Row className="g-4">
+            <Row className="g-4 justify-content-center">
               <Form.Control
                 type="file"
                 required
                 name="file"
                 onChange={uploadToIPFS}
               />
-              <Form.Control onChange={(e) => setName(e.target.value)} size="lg" required type="text" placeholder="Name" />
-              <Form.Control onChange={(e) => setDescription(e.target.value)} size="lg" required as="textarea" placeholder="Description" />
+              <Form.Control onChange={(e) => setName(e.target.value)} size="sm-md lg" required type="text" placeholder="Name" />
+              <Form.Control onChange={(e) => setDescription(e.target.value)} size="md" required as="textarea" placeholder="Description" />
               {/* <Form.Control onChange={(e) => setPrice(e.target.value)} size="lg" required type="number" placeholder="Price in ETH" /> */}
               <Form.Control onChange={(e) => setSno(e.target.value)} size="lg" required type="text" placeholder="Enter Serial Number" />
               <Form.Control onChange={(e) => setWarranty(e.target.value)} size="lg" required type="number" placeholder="Enter Warranty period (in yrs)" />
