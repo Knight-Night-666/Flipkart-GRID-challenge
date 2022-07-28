@@ -64,11 +64,7 @@ $ npm install
 `$ npm run start`
 
 ## Demo:
-
 Video demostration : https://youtu.be/3t715p6pglA (Video Link) 
-
-## Platform:
-  ### Web based
 
 ## Scalability:
 - Creating a more fully fledged marketplace that will handle selling and listing 
